@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Bootstrap Icons';
+  src: url('../icons/bootstrap-icons.svg') format('svg');
+  src: url('../icons/bootstrap-fill.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.bi {
+  display: inline-block;
+  font-family: 'Bootstrap Icons';
+  font-weight: normal;
+  font-style: normal;
+  vertical-align: text-bottom;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1;
+}

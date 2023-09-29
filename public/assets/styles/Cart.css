@@ -1,0 +1,79 @@
+/* Use the color variables for styling */
+@import "./variables.css";
+
+.cart {
+  padding: 20px;
+  background-color: var(--background-color);
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart h2 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.empty-cart-message {
+  color: var(--accent-color);
+}
+
+.cart .cart-items .cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--secondary-color);
+  margin-bottom: 10px;
+}
+
+.cart .cart-items .cart-item img {
+  width: 100px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.cart .cart-items .cart-item h3 {
+  font-size: 1.2rem;
+  color: var(--text-color);
+}
+
+.cart .cart-items .cart-item .price {
+  color: var(--accent-color);
+}
+
+input {
+  width: 40px;
+  padding: 5px;
+  border: 1px solid var(--accent-color);
+  border-radius: 3px;
+}
+
+.cart .cart-items .cart-item .remove-item-button {
+  background-color: var(--error-color);
+  color: var(--background-color);
+}
+
+.cart .checkout-button {
+  background-color: var(--button-color);
+  color: var(--background-color);
+}
+
+button:hover {
+  background-color: var(--background-color);
+  color: var(--secondary-color);
+}
+
+
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-top: 20px;
+  border: 1px solid var(--accent-color);
+}
+
+.cart-total p {
+  font-weight: bolder;
+  color: var(--text-color);
+}

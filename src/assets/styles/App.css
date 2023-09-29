@@ -1,0 +1,13 @@
+@import './variables.css';
+@import './fonts.css';
+
+/* Apply variables to elements */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ... More styling rules using the color variables */
