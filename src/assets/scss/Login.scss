@@ -1,0 +1,174 @@
+@import './variables';
+
+/* Center the login form */
+.login-container {
+	height: 100vh;
+	max-width: 100%;
+
+	.success-message {
+		color: $success-color;
+		background-color: $background-color;
+		border: 1px solid #c3e6cb;
+		padding: 10px;
+		border-radius: 4px;
+		margin-bottom: 10px;
+		text-align: center;
+	}
+
+	.error-message {
+		margin-top: 10px;
+		color: $error-color;
+		background-color: #f8d7da;
+		border: 1px solid #f5c6cb;
+		padding: 10px;
+		border-radius: 4px;
+		margin-bottom: 10px;
+		text-align: center;
+	}
+
+	.row {
+		width: 100vw !important;
+		height: 100vh;
+
+		.form-column {
+			padding: 0 2rem !important;
+			row-gap: 4rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+
+			.login-header {
+				display: flex;
+				flex-direction: column;
+				row-gap: 15px;
+				margin-top: 2rem;
+
+				.brand {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					column-gap: 10px;
+
+					span {
+						font-size: 1.3rem;
+						font-weight: bolder;
+					}
+
+					.logo {
+						img {
+							width: 80px;
+							height: 80px;
+							border-radius: 50%;
+							box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+						}
+					}
+				}
+
+				.login-heading {
+					color: $text-color;
+
+					h2 {
+						font-size: 2.5rem;
+					}
+				}
+			}
+
+			/* Style for form inputs */
+			.input-group {
+				// margin-bottom: 15px;
+				position: relative;
+
+				/* Add padding and background to icons */
+				.input-group-text {
+					border-radius: 0.25rem 0 0 0.25rem;
+					background-color: $accent-color !important;
+					color: $background-color !important;
+					padding: 0.5rem 0.7rem;
+					cursor: pointer;
+					border-color: transparent;
+				}
+
+				.form-control {
+					border-radius: 0 0.25rem 0.25rem 0;
+
+					&:focus {
+						box-shadow: none;
+					}
+				}
+
+				.input-group-text-password {
+					border-radius: 0 0.25rem 0.25rem 0;
+
+					.bi {
+						cursor: pointer;
+					}
+				}
+
+				.toggle-visibility {
+					border-top-right-radius: 4px;
+					border-bottom-right-radius: 4px;
+				}
+			}
+
+			.login-form-footer {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				margin: 1.5rem 0;
+
+				.remember-forgot {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+
+					.form-check-label {
+						font-size: 0.85rem;
+					}
+
+					.forgot-password {
+						a {
+							font-size: 0.85rem;
+							color: $secondary-color;
+							text-decoration: none;
+
+							&:hover {
+								text-decoration: underline;
+							}
+						}
+					}
+				}
+			}
+
+			.btn-login {
+				background-color: $button-color;
+				border: none;
+				width: -webkit-fill-available;
+				color: $background-color;
+			}
+
+			.signup-link {
+				text-align: center;
+				margin-top: 0.3rem;
+
+				a {
+					font-size: 0.9rem;
+					color: $secondary-color;
+					text-decoration: none;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+
+		.signin-bg {
+			background-image: url(../../../public/images/signin.jpg);
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			height: 100vh;
+			width: 100%;
+		}
+	}
+}

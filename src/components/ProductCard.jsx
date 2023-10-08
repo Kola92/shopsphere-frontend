@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem, updateLocalStorage } from '../redux/cartSlice';
-import '../assets/styles/ProductCard.css';
+import '../assets/scss/ProductCard.scss';
 
 const ProductCard = ({ product }) => {
 	const dispatch = useDispatch();

@@ -1,0 +1,160 @@
+@import './variables';
+.header {
+	padding: 15px;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+	.navbar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.navbar-brand {
+			img {
+				width: 60px;
+				height: 60px;
+				border-radius: 50%;
+				box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+			}
+		}
+
+		.navbar-nav {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			column-gap: 30px;
+			margin-right: 20px;
+
+			.nav-item {
+				margin-right: 20px;
+				list-style-type: none;
+
+				&:last-child {
+					margin-right: 0;
+				}
+
+				.logout-btn {
+					background-color: $error-color !important;
+					color: white;
+				}
+
+				.nav-link {
+					color: $text-color;
+					text-decoration: none;
+					font-weight: bold;
+					transition: color 0.3s ease;
+
+					.bi-cart-fill {
+						font-size: 1.8rem !important;
+					}
+
+					&:hover {
+						color: $secondary-color !important;
+					}
+
+					&.active {
+						color: $secondary-color !important;
+						font-weight: bolder;
+					}
+				}
+			}
+
+			.cart-link-icon {
+				color: $text-color;
+
+				&:hover {
+					color: $secondary-color;
+				}
+
+				.bi-cart-fill {
+					font-size: x-large;
+				}
+
+				&.active {
+					.bi-cart-fill {
+						color: $secondary-color !important;
+					}
+				}
+
+				.badge {
+					padding: 5px !important;
+				}
+			}
+		}
+
+		.navbar-toggler {
+			border: none;
+			font-size: x-large;
+		}
+
+		// Mega Menu Styles
+		.mega-menu {
+			position: fixed; /* Use fixed position to cover the entire screen */
+			top: 117px; /* Position it below the navbar */
+			left: 0;
+			width: 100vw; /* Use viewport width for full width */
+			height: 70vh;
+			background-color: #fff;
+			border: 1px solid #e5e5e5;
+			border-radius: 0;
+			box-shadow: 0px 2px 8px 0px rgba(99, 99, 99, 0.2);
+			z-index: 1;
+			display: none; /* Initially hide the mega menu */
+			overflow-y: auto; /* Enable vertical scrolling if content exceeds the height */
+			padding-top: 6rem;
+
+			.container {
+				max-width: 100%;
+			}
+
+			.row {
+				display: flex;
+				flex-wrap: wrap;
+				margin-left: -10px;
+				margin-right: -10px;
+			}
+
+			.col-md-3 {
+				flex-basis: 25%;
+				max-width: 25%;
+				padding: 10px;
+			}
+
+			ul.list-unstyled {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+
+				display: grid;
+				justify-items: center;
+				grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+				gap: 20px 10px;
+			}
+
+			a {
+				color: #333;
+				text-decoration: none;
+				transition: color 0.3s ease;
+
+				&:hover {
+					color: $secondary-color !important;
+				}
+			}
+		}
+
+		.show {
+			display: block;
+		}
+
+		// Show the mega menu when the dropdown is active
+		// .nav-item:hover .mega-menu,
+		// .nav-item:focus-within .mega-menu {
+		// 	display: block;
+		// }
+	}
+}
+
+.nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}

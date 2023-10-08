@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import '../assets/styles/FeaturedProduct.css';
+import '../assets/scss/FeaturedProduct.scss';
 
 const FeaturedProducts = () => {
 	const products = useSelector((state) => state.products);

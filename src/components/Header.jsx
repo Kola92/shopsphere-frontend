@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import '../assets/styles/Header.css';
+import '../assets/scss/Header.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearUser, clearAuthenticatedUserId } from '../redux/usersSlice';
 
@@ -23,13 +23,17 @@ const Header = () => {
 		0
 	);
 
+	const [showCategories, setShowCategories] = useState(false);
+
+	const toggleCategories = () => {
+		setShowCategories(!showCategories);
+	};
+
 	return (
 		<header className='header'>
-			<nav
-				className='navbar navbar-expand-lg navbar-light
-      '>
+			<nav className='navbar navbar-expand-lg navbar-light'>
 				<NavLink to='/' className='navbar-brand'>
-					<img src='/images/logo.png' alt='Logo' />
+					<img src='/images/shopsphere-logo.png' alt='Logo' />
 				</NavLink>
 				<button
 					className='navbar-toggler'
@@ -38,11 +42,14 @@ const Header = () => {
 					data-bs-target='#navbarNav'
 					aria-controls='navbarNav'
 					aria-expanded='false'
-					aria-label='Toggle navigation'>
+					aria-label='Toggle navigation'
+					onClick={toggleCategories}>
 					<span className='navbar-toggler-icon'></span>
 				</button>
 				<div
-					className='collapse navbar-collapse justify-content-end'
+					className={`${
+						showCategories ? 'show' : ''
+					} collapse navbar-collapse justify-content-end pt-4`}
 					id='navbarNav'>
 					<ul className='navbar-nav ml-auto'>
 						<li className='nav-item'>
@@ -53,6 +60,55 @@ const Header = () => {
 								}>
 								Home
 							</NavLink>
+						</li>
+
+						{/* Add Categories Nav Item */}
+						<li className='nav-item dropdown'>
+							<span
+								className='nav-link dropdown-toggle'
+								role='button'
+								data-bs-toggle='dropdown'
+								aria-haspopup='true'
+								aria-expanded='false'>
+								Categories
+							</span>
+							<div className='dropdown-menu mega-menu'>
+								<div className='container'>
+									<div className='row'>
+										<div className=''>
+											<ul className='list-unstyled'>
+												{/* Add your category links here */}
+												<li>
+													<NavLink to='/category/clothes'>Clothes</NavLink>
+												</li>
+												<li>
+													<NavLink to='/category/electronics'>
+														Electronics
+													</NavLink>
+												</li>
+
+												<li>
+													<NavLink to='/category/books'>Books</NavLink>
+												</li>
+												<li>
+													<NavLink to='/category/furniture'>Furniture</NavLink>
+												</li>
+
+												<li>
+													<NavLink to='/category/shoes'>Shoes</NavLink>
+												</li>
+												<li>
+													<NavLink to='/category/jewelry'>Jewelry</NavLink>
+												</li>
+
+												<li>
+													<NavLink to='/category/beauty'>Beauty</NavLink>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
 						</li>
 
 						{authenticatedUserId ? (

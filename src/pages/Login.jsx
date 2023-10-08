@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAuthenticatedUserId } from '../redux/usersSlice';
-import '../assets/styles/Login.css';
+import '../assets/scss/Login.scss';
 
 export const Login = () => {
 	const dispatch = useDispatch();
@@ -12,7 +12,7 @@ export const Login = () => {
 	const [credentials, setCredentials] = useState({ email: '', password: '' });
 	const [showPassword, setShowPassword] = useState(false);
 	const [loginStatus, setLoginStatus] = useState(null);
-  const [rememberMe, setRememberMe] = useState(false);
+	const [rememberMe, setRememberMe] = useState(false);
 
 	const handleLogin = () => {
 		const { email, password } = credentials;
@@ -27,7 +27,7 @@ export const Login = () => {
 			setTimeout(() => {
 				// Redirect to home after a few seconds
 				dispatch(setAuthenticatedUserId(matchedUser.id));
-				navigate('/');
+				navigate('/profile');
 			}, 3000);
 		} else {
 			setLoginStatus('error'); // Set login error status
@@ -37,21 +37,21 @@ export const Login = () => {
 	return (
 		<div className='login-container container '>
 			{loginStatus === 'success' && (
-				<p className='success-message text-bg-success'>Login successful!</p>
+				<div className='px-4 mt-5'>
+					<p className='success-message'>Login successful!</p>
+				</div>
 			)}
 			{loginStatus === 'error' && (
-				<p className='error-message text-bg-danger'>
-					Login failed. Please try again.
-				</p>
+				<div className='px-4 mt-5'>
+					<p className='error-message'>Login failed. Please try again.</p>
+				</div>
 			)}
-			<div className='row w-100'>
-				<div
-					className='col-12 col-lg-6 form-column'
-					>
+			<div className='row'>
+				<div className='col-12 col-lg-6 form-column px-lg-4'>
 					<div className='login-header'>
 						<div className='brand'>
 							<div className='logo'>
-								<img src='/images/logo.png' alt='Logo' />
+								<img src='/images/shopsphere-logo.png' alt='Logo' />
 							</div>
 							<span>ShopSphere Store</span>
 						</div>
@@ -71,6 +71,9 @@ export const Login = () => {
 									type='email'
 									className='form-control'
 									placeholder='Email'
+									id='email'
+									name='email'
+									autoComplete='on'
 									value={credentials.email}
 									onChange={(e) =>
 										setCredentials({ ...credentials, email: e.target.value })
@@ -79,7 +82,7 @@ export const Login = () => {
 							</div>
 						</div>
 
-						<div className='mb-3'>
+						<div className='mb-1'>
 							<div className='input-group'>
 								<span className='input-group-text'>
 									<i className='bi bi-lock'></i>
@@ -89,12 +92,15 @@ export const Login = () => {
 									className='form-control'
 									placeholder='Password'
 									value={credentials.password}
+									id='current-password'
+									name='current-password'
+									autoComplete='on'
 									onChange={(e) =>
 										setCredentials({ ...credentials, password: e.target.value })
 									}
 								/>
 								<span
-									className='input-group-text toggle-visibility'
+									className='input-group-text input-group-text-password toggle-visibility'
 									onClick={() => setShowPassword(!showPassword)}>
 									<i
 										className={`bi ${
@@ -104,44 +110,42 @@ export const Login = () => {
 							</div>
 						</div>
 
-            <div className='login-form-footer mb-4'>
-            <div className="remember-forgot">
-              <div className='form-check'>
-                <input
-                  className='form-check-input'
-                  type='checkbox'
-                  id='keepLogged'
-  checked={rememberMe}
-  onChange={() => setRememberMe(!rememberMe)}
-                />
-                <label className='form-check-label' htmlFor='keepLogged'>
-                  Keep me logged in
-                </label>
-              </div>
+						<div className='login-form-footer mb-5'>
+							<div className='remember-forgot'>
+								<div className='form-check mb-0'>
+									<input
+										className='form-check-input'
+										type='checkbox'
+										id='keepLogged'
+										checked={rememberMe}
+										onChange={() => setRememberMe(!rememberMe)}
+									/>
+									<label className='form-check-label' htmlFor='keepLogged'>
+										Keep me logged in
+									</label>
+								</div>
 
-               <div className='forgot-password'>
-                <a href='/forgot-password'>Forgot your password?</a>
-              </div>
-
-            </div>
-          </div>
+								<div className='forgot-password'>
+									<a href='/forgot-password'>Forgot your password?</a>
+								</div>
+							</div>
+						</div>
 
 						<button
 							type='button'
-							className='btn btn-primary btn-login'
+							className='btn btn-login'
 							onClick={handleLogin}>
 							Log in
 						</button>
 
-            <div className='signup-link mt-5'>
-              Don't have an account? <a href='/signup'>Sign up</a>
-            </div>
+						<div className='signup-link'>
+							Don't have an account? <a href='/signup'>Sign up</a>
+						</div>
 					</form>
-
-          
 				</div>
+
 				<div className='col-lg-6 d-none d-lg-flex pe-lg-0'>
-					<div class='signin-bg'></div>
+					<div className='signin-bg'></div>
 				</div>
 			</div>
 		</div>

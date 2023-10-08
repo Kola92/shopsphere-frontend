@@ -1,0 +1,9 @@
+@import './variables';
+@import '../styles/fonts.css';
+
+/* Apply variables to elements */
+body {
+  background-color: $background-color;
+  color: $text-color;
+  font-family: 'Montserrat', sans-serif;
+}

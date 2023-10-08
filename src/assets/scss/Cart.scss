@@ -1,0 +1,83 @@
+/* Use the color variables for styling */
+@import './variables';
+
+.cart {
+	padding: 20px;
+	background-color: $background-color;
+	border-radius: 5px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+	h2 {
+		color: $primary-color;
+		margin-bottom: 20px;
+	}
+
+	button {
+		&:hover {
+			background-color: $background-color;
+			color: $secondary-color;
+		}
+	}
+
+	.empty-cart-message {
+		color: $accent-color;
+	}
+
+	.cart-items {
+		.cart-item {
+			display: flex;
+			justify-content: space-between;
+			padding: 10px 0;
+			border-bottom: 1px solid $secondary-color;
+			margin-bottom: 10px;
+
+			h3 {
+				font-size: 1.2rem;
+				color: $text-color;
+			}
+
+			img {
+				width: 100px;
+				height: auto;
+				margin-right: 10px;
+			}
+
+			.price {
+				color: $accent-color;
+			}
+
+			.input-group {
+				input {
+					width: 40px;
+					padding: 5px;
+					border: 1px solid $accent-color;
+					border-radius: 3px;
+				}
+			}
+
+			.remove-item-button {
+				background-color: $error-color;
+				color: $background-color;
+			}
+		}
+
+		.cart-total {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 10px;
+			margin-top: 20px;
+			border: 1px solid $accent-color;
+
+			p {
+				font-weight: bolder;
+				color: $text-color;
+			}
+
+			.checkout-button {
+				background-color: $button-color;
+				color: $background-color;
+			}
+		}
+	}
+}

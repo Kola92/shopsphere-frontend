@@ -4,14 +4,15 @@ import CategoryMenu from '../components/CategoryMenu';
 import { Outlet } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
 import FeaturedProducts from '../components/FeaturedProducts';
+import '../assets/scss/Home.scss';
 
 const Home = () => {
 	return (
-		<div className='container pb-3'>
+		<div className='container py-5'>
 			<div className='home'>
 				<h1 className='my-4 text-center'>Welcome to ShopSphere</h1>
 
-				<div className='card'>
+				<div className='card d-none'>
 					<div className='card-header'>
 						<div className='card-title'>
 							<h2 className=''>Categories</h2>
@@ -28,7 +29,7 @@ const Home = () => {
 					<ProductList />
 				</div>
 
-				<div className='home-featured-products mt-5'>
+				<div className='home-featured-products'>
 					<h2>Featured Products</h2>
 					<FeaturedProducts />
 				</div>

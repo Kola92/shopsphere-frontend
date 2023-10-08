@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createSelector } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
 
 const initialState = {
@@ -25,6 +25,17 @@ const usersSlice = createSlice({
 	},
 });
 
+// Selector to get the authenticated user by ID
+export const selectAuthenticatedUserId = (state) =>
+	state.users.authenticatedUserId;
+export const selectUserById = createSelector(
+	(state) => state.users.usersList,
+	selectAuthenticatedUserId,
+	(usersList, authenticatedUserId) => {
+		return usersList.find((user) => user.id === authenticatedUserId);
+	}
+);
+
 export const {
 	addUser,
 	setUser,
@@ -32,4 +43,5 @@ export const {
 	setAuthenticatedUserId,
 	clearAuthenticatedUserId,
 } = usersSlice.actions;
+
 export default usersSlice.reducer;
