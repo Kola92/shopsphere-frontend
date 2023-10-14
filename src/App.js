@@ -9,6 +9,7 @@ import UserProfile from './pages/UserProfile';
 import ProtectedRoute from './components/ProtectedRoute';
 import { Login } from './pages/Login';
 import SignUp from './pages/SignUp';
+import Checkout from './pages/Checkout';
 import { useSelector } from 'react-redux';
 
 const App = () => {
@@ -29,7 +30,7 @@ const App = () => {
 					<Route path='/cart' element={<Cart />} />
 					<Route path='/signin' element={<Login />} />
 					<Route path='/signup' element={<SignUp />} />
-
+					<Route path='/checkout' element={<Checkout />} />
 					<Route
 						path='/profile'
 						element={
